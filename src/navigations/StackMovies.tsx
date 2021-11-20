@@ -7,7 +7,7 @@ const Stack = createNativeStackNavigator()
 
 export default function StackMovie() {
     return (
-        <Stack.Navigator>
+        <Stack.Navigator >
             <Stack.Screen name="Home" component={Home} options={{
                 headerShown: false
             }} />
