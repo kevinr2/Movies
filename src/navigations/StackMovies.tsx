@@ -7,11 +7,14 @@ const Stack = createNativeStackNavigator()
 
 export default function StackMovie() {
     return (
-        <Stack.Navigator >
+        <Stack.Navigator initialRouteName='Home' >
+            <Stack.Screen name="Details" component={Details} options={{
+                title: '',
+                headerTransparent: true
+            }} />
             <Stack.Screen name="Home" component={Home} options={{
                 headerShown: false
             }} />
-            <Stack.Screen name="Details" component={Details} />
         </Stack.Navigator>
     )
 }

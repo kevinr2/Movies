@@ -1,24 +1,28 @@
 import React from 'react'
-import { View, Text, ScrollView, StyleSheet } from 'react-native'
+import { View, Text, ScrollView, StyleSheet, Pressable } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
 export default function Movie() {
+    const navigation = useNavigation()
     return (
-        <ScrollView>
-            <View style={style.movie}>
+        <View style={{ width: 160, height: 200 }}>
+            <Pressable onPress={() => navigation.navigate("Details")}>
+                <View style={style.movie}>
+                </View>
+                <Text style={{ marginLeft: 25, top: 15, color: 'white' }}>Avengers endgame</Text>
+            </Pressable>
+        </View>
 
-            </View>
-        </ScrollView>
     )
 }
 
-
 const style = StyleSheet.create({
     movie: {
-        width: 120,
-        height: 180,
+        width: 130,
+        height: 170,
         backgroundColor: 'gray',
-        marginTop: 20,
-        left: 25,
-        borderRadius: 30
+        marginTop: 15,
+        borderRadius: 30,
+        marginLeft: 20
     }
 })

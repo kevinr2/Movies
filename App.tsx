@@ -11,7 +11,6 @@ export default function App() {
 
     <NavigationContainer theme={DarkTheme} >
       <StackMovie />
-      <StatusBar style="light" />
     </NavigationContainer>
 
   );

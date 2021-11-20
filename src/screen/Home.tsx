@@ -1,16 +1,20 @@
+import { StatusBar } from 'expo-status-bar'
 import React from 'react'
-import { View, Text, StyleSheet, TextInput } from 'react-native'
+import { View, Text, StyleSheet, TextInput, ScrollView } from 'react-native'
 import Header from '../components/home/Header'
 import Body from '../components/movies/Body'
 
 
 
+
 export default function Home() {
     return (
-        <View>
+        <ScrollView>
             <Header />
             <Body />
-        </View>
+            <StatusBar style='light' />
+        </ScrollView>
+
     )
 }
 
