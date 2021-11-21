@@ -7,7 +7,7 @@ import ImageDetails from '../components/Details/ImageDetails'
 import Others from '../components/Details/Others'
 import Title from '../components/Details/Title'
 
-export default function Details(props) {
+export default function Details(props: any) {
 
     const { navigation } = props
     useEffect(() => {

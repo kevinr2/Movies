@@ -2,7 +2,8 @@ import React from 'react'
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import Movie from './Movie'
 
-export default function Body() {
+export default function Body({ movie }: any) {
+    console.log(movie)
     return (
         <View style={style.bodys}>
             <View style={{ top: 20, padding: 20, display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
