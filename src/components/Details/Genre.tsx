@@ -4,7 +4,7 @@ import { View, Text } from 'react-native'
 export default function Genre(props: any) {
     const { name } = props
 
-    return <Text style={{ color: 'white', }}>{`${name}, `}</Text>
+    return <Text>{`${name}, `}</Text>
 
 
 

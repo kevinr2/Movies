@@ -7,6 +7,7 @@ import ImageDetails from '../components/Details/ImageDetails'
 import Others from '../components/Details/Others'
 import Title from '../components/Details/Title'
 import { GetMovieId, GetRepart } from '../assets/Host'
+import styled from 'styled-components/native'
 
 export default function Details(props: any) {
 
@@ -16,10 +17,9 @@ export default function Details(props: any) {
     const [movie, setmovie] = useState(Object)
     const [actor, setActor] = useState(Object)
     const [Studio, setStudio] = useState()
-    const [genre, setGenre] = useState()
     useEffect(() => {
         navigation.setOptions({
-            headerRight: () => <Icon name="heart" color='#fff' size={20} style={{ marginRight: 20 }} />,
+            headerRight: () => <Icon name="heart" color='#fff' size={20} style={{ marginRight: 20, height: 23, width: 25 }} />,
             headerLeft: () =>
                 <Icon
                     name="arrow-left"
@@ -37,7 +37,7 @@ export default function Details(props: any) {
                 const Repart = await GetRepart(params.id)
                 setmovie(response)
                 const filtered = Repart.cast.filter((item: any) => {
-                    return item.known_for_department == "Acting"
+                    return item.known_for_department == "Acting" && item.profile_path !== null
                 });
                 setActor(filtered)
                 setStudio(response.production_companies[0].name)
@@ -47,23 +47,25 @@ export default function Details(props: any) {
         })()
     }, [params.id])
     return (
-        <ScrollView>
-            <View>
-                <ImageDetails image={movie.backdrop_path} />
-                <Title title={movie.title} />
-                <Description description={movie.overview} />
-                <View style={{ height: 160 }}>
-                    <FlatList
-                        horizontal
-                        data={actor}
-                        legacyImplementation={false}
-                        keyExtractor={(actor) => String(actor.id)}
-                        renderItem={({ item }) => <Actors name={item.original_name} poster={item.profile_path} id={item.id} />}
-                    />
-                </View>
-
-                <Others studio={Studio} realese={movie.release_date} genres={movie.genres} />
+        <Container>
+            <ImageDetails image={movie.backdrop_path} />
+            <Title title={movie.title} />
+            <Description description={movie.overview} />
+            <View style={{ height: 160 }}>
+                <FlatList
+                    horizontal
+                    data={actor}
+                    legacyImplementation={false}
+                    keyExtractor={(actor) => String(actor.id)}
+                    renderItem={({ item }) => <Actors name={item.original_name} poster={item.profile_path} id={item.id} />}
+                />
             </View>
-        </ScrollView>
+
+            <Others studio={Studio} realese={movie.release_date} genres={movie.genres} />
+        </Container>
     )
 }
+
+const Container = styled(ScrollView)`
+background-color: white;
+`

@@ -1,32 +1,61 @@
 import React, { useState } from 'react'
 import { View, Text, FlatList } from 'react-native'
 import Genre from './Genre'
+import styled from 'styled-components/native'
+
 
 export default function Others(props: any) {
 
     const { studio, realese, genres } = props
     return (
-        <View style={{ marginHorizontal: 26, height: 70 }}>
-            <View style={{ display: 'flex', flexDirection: 'row' }}>
-                <Text style={{ color: 'white', fontWeight: 'bold' }}>Studio</Text>
-                <Text style={{ color: 'white', marginLeft: 20 }}>{studio}</Text>
-            </View>
-            <View style={{ display: 'flex', flexDirection: 'row' }}>
-                <Text style={{ color: 'white', fontWeight: 'bold' }}>Genres</Text>
-                <View style={{ display: 'flex', flexDirection: 'row', marginLeft: 15 }}>
+        <ViewOthers>
+            <Container>
+                <Bold>Studio</Bold>
+                <TextInfo>{studio}</TextInfo>
+            </Container>
+            <Container>
+                <Bold>Genres</Bold>
+                <Container2>
                     <FlatList
                         horizontal
                         data={genres}
                         legacyImplementation={false}
                         keyExtractor={(genres) => String(genres.id)}
                         renderItem={({ item }) => <Genre name={item.name} />}
+                        initialNumToRender={5}
+                        removeClippedSubviews
                     />
-                </View>
-            </View>
-            <View style={{ display: 'flex', flexDirection: 'row' }}>
-                <Text style={{ color: 'white', fontWeight: 'bold' }}>Release</Text>
-                <Text style={{ color: 'white', marginLeft: 10 }}>{realese}</Text>
-            </View>
-        </View>
+                </Container2>
+            </Container>
+            <Container >
+                <Bold>Release</Bold>
+                <TextInfo2 >{realese}</TextInfo2>
+            </Container>
+        </ViewOthers>
     )
 }
+
+const ViewOthers = styled(View)`
+height: 70px;
+margin: 0 26px;
+`
+
+const Container = styled(View)`
+display: flex;
+flex-direction:row;
+`
+const Bold = styled(Text)`
+font-weight:bold;
+`
+const TextInfo = styled(Text)`
+margin-left:20px;
+`
+const TextInfo2 = styled(Text)`
+margin-left:15px;
+`
+
+const Container2 = styled(View)`
+display: flex;
+flex-direction:row;
+margin-left:15px;
+`

@@ -4,6 +4,9 @@ import { View, Text, StyleSheet, TextInput, ScrollView } from 'react-native'
 import { GetMovies, GetTop } from '../assets/Host'
 import Header from '../components/home/Header'
 import Body from '../components/movies/Body'
+import styled from 'styled-components/native'
+
+
 
 export default function Home() {
 
@@ -23,12 +26,18 @@ export default function Home() {
 
     }, [])
     return (
+
         <ScrollView>
-            <Header />
-            <Body movie={movies.results} top={top.results} />
-            <StatusBar style='light' />
+            <Container>
+                <Header />
+                <Body movie={movies.results} top={top.results} />
+                <StatusBar style='light' />
+            </Container>
         </ScrollView>
 
     )
 }
 
+const Container = styled(View)`
+background-color: gray;
+`

@@ -1,15 +1,16 @@
 import React from 'react';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
-import { Appearance, useColorScheme } from 'react-native';
+import { Appearance, useColorScheme, View } from 'react-native';
 import StackMovie from './src/navigations/StackMovies';
-import { StatusBar } from 'expo-status-bar';
+import styled from 'styled-components/native'
+
 
 
 
 export default function App() {
   return (
 
-    <NavigationContainer theme={DarkTheme} >
+    <NavigationContainer >
       <StackMovie />
     </NavigationContainer>
 

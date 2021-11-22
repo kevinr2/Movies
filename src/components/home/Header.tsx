@@ -1,51 +1,52 @@
 import React from 'react'
-import { View, Text, StyleSheet, TextInput } from 'react-native'
+import { View, Text, TextInput } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5'
+import styled from 'styled-components/native'
+
 
 
 export default function Header() {
     return (
-        <View style={style.header}>
-            <View style={style.title}>
-                <Text style={style.headerText}> Hello, what do you want to watch?</Text>
-                <TextInput style={style.input} placeholder="Search" />
-                <Icon style={style.icon} name="search" size={20} />
-            </View>
-        </View>
+        <Container>
+            <Title>
+                <HeaderText> Hello, what do you want to watch?</HeaderText>
+                <Input placeholder="Search" />
+                <Icons name="search" size={20} />
+            </Title>
+        </Container>
     )
 }
 
-const style = StyleSheet.create({
-    header: {
-        backgroundColor: '#000',
-        width: '100%',
-        height: 200
-    },
-    title: {
-        height: '100%',
-        color: 'white',
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    headerText: {
-        color: 'white',
-        width: '70%',
-        fontSize: 20,
-        fontWeight: 'bold',
-        marginBottom: 20
-    },
-    input: {
-        backgroundColor: 'rgba(255, 255, 255, 0.7)',
-        width: '65%',
-        padding: 2,
-        paddingHorizontal: 40,
-        borderRadius: 20
-    },
-    icon: {
-        position: 'absolute',
-        bottom: 56,
-        left: 75,
-        color: 'rgba(255, 255, 255, 0.7)'
-    }
-})
+const Container = styled(View)`
+width: 100%;
+height: 200px;
+margin-top: -15px;
+`
+const Title = styled(View)`
+height: 100%;
+display:flex;
+justify-content: center;
+align-items: center;
+`
+
+const HeaderText = styled(Text)`
+color: white;
+width: 70%;
+font-size: 25px;
+font-weight: bold;
+margin-bottom: 20px;
+`
+const Input = styled(TextInput)`
+marginLeft: 20px;
+background-color: rgba(255, 255, 255, 0.7);
+width: 75%;
+padding: 2px 40px;
+border-radius: 20px;
+`
+const Icons = styled(Icon)`
+position: absolute;
+bottom: 48px;
+left: 65px;
+color: rgba(255, 255, 255, 0.7);
+`
+
