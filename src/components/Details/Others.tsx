@@ -1,19 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { View, Text, FlatList } from 'react-native'
 import Genre from './Genre'
-import styled from 'styled-components/native'
-
+import { ViewO, Container2, ContainerO, Bold, TextInfo, TextInfo2 } from '../../themes/Style'
 
 export default function Others(props: any) {
 
     const { studio, realese, genres } = props
     return (
-        <ViewOthers>
-            <Container>
+        <ViewO>
+            <ContainerO>
                 <Bold>Studio</Bold>
                 <TextInfo>{studio}</TextInfo>
-            </Container>
-            <Container>
+            </ContainerO>
+            <ContainerO>
                 <Bold>Genres</Bold>
                 <Container2>
                     <FlatList
@@ -26,36 +25,13 @@ export default function Others(props: any) {
                         removeClippedSubviews
                     />
                 </Container2>
-            </Container>
-            <Container >
+            </ContainerO>
+            <ContainerO >
                 <Bold>Release</Bold>
                 <TextInfo2 >{realese}</TextInfo2>
-            </Container>
-        </ViewOthers>
+            </ContainerO>
+        </ViewO>
     )
 }
 
-const ViewOthers = styled(View)`
-height: 70px;
-margin: 0 26px;
-`
 
-const Container = styled(View)`
-display: flex;
-flex-direction:row;
-`
-const Bold = styled(Text)`
-font-weight:bold;
-`
-const TextInfo = styled(Text)`
-margin-left:20px;
-`
-const TextInfo2 = styled(Text)`
-margin-left:15px;
-`
-
-const Container2 = styled(View)`
-display: flex;
-flex-direction:row;
-margin-left:15px;
-`

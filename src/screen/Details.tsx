@@ -7,8 +7,7 @@ import ImageDetails from '../components/Details/ImageDetails'
 import Others from '../components/Details/Others'
 import Title from '../components/Details/Title'
 import { GetMovieId, GetRepart } from '../assets/Host'
-import styled from 'styled-components/native'
-
+import { ContainerDetails } from '../themes/Style'
 export default function Details(props: any) {
 
     const { navigation } = props
@@ -47,7 +46,7 @@ export default function Details(props: any) {
         })()
     }, [params.id])
     return (
-        <Container>
+        <ContainerDetails>
             <ImageDetails image={movie.backdrop_path} />
             <Title title={movie.title} />
             <Description description={movie.overview} />
@@ -62,10 +61,7 @@ export default function Details(props: any) {
             </View>
 
             <Others studio={Studio} realese={movie.release_date} genres={movie.genres} />
-        </Container>
+        </ContainerDetails>
     )
 }
 
-const Container = styled(ScrollView)`
-background-color: white;
-`

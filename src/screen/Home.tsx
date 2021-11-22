@@ -5,7 +5,7 @@ import { GetMovies, GetTop } from '../assets/Host'
 import Header from '../components/home/Header'
 import Body from '../components/movies/Body'
 import styled from 'styled-components/native'
-
+import { ContainerHome } from '../themes/Style'
 
 
 export default function Home() {
@@ -18,6 +18,7 @@ export default function Home() {
                 const response = await GetMovies()
                 const Top = await GetTop()
                 setMovies(response)
+                console.log(Top)
                 setTop(Top)
             } catch (error) {
                 console.log(error)
@@ -28,16 +29,14 @@ export default function Home() {
     return (
 
         <ScrollView>
-            <Container>
+            <ContainerHome>
                 <Header />
                 <Body movie={movies.results} top={top.results} />
                 <StatusBar style='light' />
-            </Container>
+            </ContainerHome>
         </ScrollView>
 
     )
 }
 
-const Container = styled(View)`
-background-color: gray;
-`
+

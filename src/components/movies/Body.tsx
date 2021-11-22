@@ -1,12 +1,12 @@
 import React from 'react'
 import { View, Text, StyleSheet, ScrollView, FlatList, ActivityIndicator } from 'react-native'
 import Movie from './Movie'
-import styled from 'styled-components/native'
+import { ContainerBody, ContainerText, TextTitle, TextSee, List1, ListTop, ContainerText2 } from '../../themes/Style'
 
 export default function Body({ movie, top }: any) {
 
     return (
-        <Container>
+        <ContainerBody>
             <ContainerText>
                 <TextTitle>RECOMMEND FOR YOU</TextTitle>
                 <TextSee>See all</TextSee>
@@ -36,45 +36,7 @@ export default function Body({ movie, top }: any) {
                     initialNumToRender={5}
                 />
             </ListTop>
-        </Container >
+        </ContainerBody >
     )
 }
 
-const Container = styled(View)`
-width: 100%;
-height: 600px;
-background-color: #2C3848;
-border-top-right-radius: 20px;
-border-top-left-radius: 20px;
-margin-top: -18px;`
-
-const ContainerText = styled(View)`
-top: 20px;
-padding: 20px;
-display: flex;
-flex-direction: row ;
-justify-content: space-between;
-`
-const ContainerText2 = styled(View)`
-top: 5px;
-padding: 20px;
-display: flex;
-flex-direction: row ;
-justify-content: space-between;
-`
-const TextTitle = styled(Text)`
-color: white;
-font-weight: bold;
-`
-const TextSee = styled(Text)`
-color: white;
-`
-
-const List1 = styled(View)`
-height: 240px;
-`
-
-const ListTop = styled(View)`
-margin-top: -20px;
-height: 240px;
-`

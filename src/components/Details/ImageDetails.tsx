@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, Image } from 'react-native'
 import { API_IMAGE } from '../../assets/Api'
-import styled from 'styled-components/native'
+import { ImageContent, ImagePoster } from '../../themes/Style'
 
 export default function ImageDetails(props: any) {
     const { image } = props
@@ -12,11 +12,3 @@ export default function ImageDetails(props: any) {
     )
 }
 
-const ImageContent = styled(View)`
-width: 100%;
-height: 250px;
-`
-const ImagePoster = styled(Image)`
-width: 100%;
-height: 100%;
-`

@@ -1,48 +1,37 @@
-import React from 'react'
-import { View, Text, TextInput } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { View, Text, TextInput, Switch } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 import styled from 'styled-components/native'
+import { ContainerHeader, Title, HeaderText, Input } from '../../themes/Style'
+import { useDispatch } from 'react-redux'
+import { datos } from '../../redux/slice/sliceSwitch'
+
 
 
 
 export default function Header() {
+    const [isEnabled, setIsEnabled] = useState(false);
+    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+    const dispatch = useDispatch();
+    dispatch(datos(isEnabled))
     return (
-        <Container>
+        <ContainerHeader>
+            <Switch style={{ position: 'absolute', marginLeft: 300, top: 50 }}
+                trackColor={{ false: "#767577", true: "#81b0ff" }}
+                thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+                ios_backgroundColor="#3e3e3e"
+                onValueChange={toggleSwitch}
+                value={isEnabled}
+            />
             <Title>
                 <HeaderText> Hello, what do you want to watch?</HeaderText>
                 <Input placeholder="Search" />
                 <Icons name="search" size={20} />
             </Title>
-        </Container>
+        </ContainerHeader>
     )
 }
 
-const Container = styled(View)`
-width: 100%;
-height: 200px;
-margin-top: -15px;
-`
-const Title = styled(View)`
-height: 100%;
-display:flex;
-justify-content: center;
-align-items: center;
-`
-
-const HeaderText = styled(Text)`
-color: white;
-width: 70%;
-font-size: 25px;
-font-weight: bold;
-margin-bottom: 20px;
-`
-const Input = styled(TextInput)`
-marginLeft: 20px;
-background-color: rgba(255, 255, 255, 0.7);
-width: 75%;
-padding: 2px 40px;
-border-radius: 20px;
-`
 const Icons = styled(Icon)`
 position: absolute;
 bottom: 48px;
