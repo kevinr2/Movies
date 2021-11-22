@@ -1,31 +1,35 @@
 import React from 'react'
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, FlatList } from 'react-native'
 import Movie from './Movie'
 
-export default function Body({ movie }: any) {
-    console.log(movie)
+export default function Body({ movie, top }: any) {
+
     return (
         <View style={style.bodys}>
             <View style={{ top: 20, padding: 20, display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                 <Text style={{ color: 'white', fontWeight: 'bold' }}>RECOMMEND FOR YOU</Text>
                 <Text style={{ color: 'white', }}>See all</Text>
             </View>
-            <ScrollView horizontal>
-                <Movie />
-                <Movie />
-                <Movie />
-                <Movie />
-            </ScrollView>
+            <View style={{ height: 240 }}>
+                <FlatList
+                    horizontal
+                    data={movie}
+                    legacyImplementation={false}
+                    keyExtractor={(movie) => String(movie.id)}
+                    renderItem={({ item }) => <Movie title={item.original_title} poster={item.poster_path} id={item.id} />}
+                />
+            </View>
             <View style={{ padding: 20, display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                 <Text style={{ color: 'white', fontWeight: 'bold' }}>TOP RATED</Text>
                 <Text style={{ color: 'white' }}>See all</Text>
             </View>
-            <ScrollView horizontal>
-                <Movie />
-                <Movie />
-                <Movie />
-                <Movie />
-            </ScrollView>
+            <FlatList
+                horizontal
+                data={top}
+                legacyImplementation={false}
+                keyExtractor={(top) => String(top.id)}
+                renderItem={({ item }) => <Movie title={item.original_title} poster={item.poster_path} id={item.id} />}
+            />
         </View >
     )
 }

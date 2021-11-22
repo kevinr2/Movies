@@ -10,7 +10,8 @@ export default function StackMovie() {
         <Stack.Navigator initialRouteName='Home' >
             <Stack.Screen name="Details" component={Details} options={{
                 title: '',
-                headerTransparent: true
+                headerTransparent: true,
+                headerShadowVisible: false
             }} />
             <Stack.Screen name="Home" component={Home} options={{
                 headerShown: false
