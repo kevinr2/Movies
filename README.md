@@ -16,4 +16,9 @@
 | :-------- | :------- | :------------------------- |
 | `api_key` | `string` | **Required**. Your API key |
 
-<img src="./assets/img/1.jpg" width="500" height="500" >
+## Screenshot
+
+<img src="./assets/img/1.jpeg" width="500" height="500" >
+<img src="./assets/img/2.jpeg" width="500" height="500" >
+<img src="./assets/img/3.jpeg" width="500" height="500" >
+<img src="./assets/img/4.jpeg" width="500" height="500" >
