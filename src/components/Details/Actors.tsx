@@ -1,5 +1,4 @@
 import React from 'react'
-import { View, Text, ScrollView, Image } from 'react-native'
 import { API_IMAGE } from '../../assets/Api'
 import { ViewContents, ViewPhoto, ImagePhoto, TextName } from '../../themes/Style'
 

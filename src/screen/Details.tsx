@@ -59,7 +59,6 @@ export default function Details(props: any) {
                     renderItem={({ item }) => <Actors name={item.original_name} poster={item.profile_path} id={item.id} />}
                 />
             </View>
-
             <Others studio={Studio} realese={movie.release_date} genres={movie.genres} />
         </ContainerDetails>
     )

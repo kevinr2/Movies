@@ -12,11 +12,10 @@ export default function Description(props: any) {
             </ViewButon>
 
             <Descriptions style={{ marginHorizontal: 25, }}>
-                <ScrollView>
+                <ScrollView >
                     <TextD >{description}</TextD>
                 </ScrollView>
             </Descriptions>
-
         </View>
     )
 }

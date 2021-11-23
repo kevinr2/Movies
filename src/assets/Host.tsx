@@ -13,9 +13,7 @@ export async function GetMovies() {
     }
 }
 export async function GetTop() {
-
     try {
-
         const URL = `${API}discover/movie${KEY_API}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=3&with_watch_monetization_types=flatrate`
         const response = await fetch(URL)
         const result = await response.json()
@@ -25,7 +23,6 @@ export async function GetTop() {
 
     }
 }
-
 export async function GetMovieId(id: any) {
     try {
         const URL = `${API}movie/${id}${KEY_API}&language=en-US`

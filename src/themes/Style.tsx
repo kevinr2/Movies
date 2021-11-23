@@ -65,7 +65,7 @@ color: ${props => props.theme.color};
 `
 
 export const List1 = styled.View`
-height: 240px;
+height: 250px;
 `
 
 export const ListTop = styled.View`
@@ -151,7 +151,7 @@ font-weight: bold;
 `
 export const Descriptions = styled.View`
 margin-top: 20px;
-height: 110px;
+
 `
 
 export const TextD = styled.Text`
