@@ -1,9 +1,8 @@
-
 ## Appmovies
+
 ## Authors
 
 - [@Kevinre2](https://www.github.com/kevinr2)
-
 
 ## API Reference
 
@@ -17,5 +16,4 @@
 | :-------- | :------- | :------------------------- |
 | `api_key` | `string` | **Required**. Your API key |
 
-
-
+<img src="./assets/img/1.jpeg">
